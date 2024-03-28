@@ -1,4 +1,3 @@
-from SearchUtil import *
 from utils import * 
 
 romania_map = UndirectedGraph(dict(

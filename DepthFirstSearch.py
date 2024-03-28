@@ -1,5 +1,4 @@
-import sys 
-from SearchUtil import *
+from utils import *
 
 def depth_first_tree_search(problem, max_expansions = sys.maxsize):
     """

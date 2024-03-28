@@ -1,4 +1,4 @@
-from SearchUtil import *
+from utils import *
 
 def depth_limited_search(problem, limit=50):
     """[Figure 3.17]"""

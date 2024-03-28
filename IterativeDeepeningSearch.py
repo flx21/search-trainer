@@ -1,4 +1,3 @@
-import sys 
 from DepthLimitedSearch import * 
 
 def iterative_deepening_search(problem):
