@@ -1,4 +1,4 @@
-from utils import *
+from SearchAlgorithms.utils import *
 
 def depth_first_tree_search(problem, max_expansions = sys.maxsize):
     """

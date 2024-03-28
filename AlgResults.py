@@ -1,10 +1,10 @@
-from BreadthFirstSearch import *
-from DepthFirstSearch import *
-from UniformCostSearch import *
-from DepthLimitedSearch import *
-from IterativeDeepeningSearch import *
-from GreedyBestFirstSearch import *
-from AStarSearch import *
+from SearchAlgorithms.BreadthFirstSearch import *
+from SearchAlgorithms.DepthFirstSearch import *
+from SearchAlgorithms.UniformCostSearch import *
+from SearchAlgorithms.DepthLimitedSearch import *
+from SearchAlgorithms.IterativeDeepeningSearch import *
+from SearchAlgorithms.GreedyBestFirstSearch import *
+from SearchAlgorithms.AStarSearch import *
 
 def expansion_order(problem, heuristic = None, steps = 6):
     res = {}

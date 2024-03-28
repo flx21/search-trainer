@@ -1,4 +1,4 @@
-from BestFirstSearch import *
+from SearchAlgorithms.BestFirstSearch import *
 
 def uniform_cost_search(problem, display=False):
     """[Figure 3.14]"""

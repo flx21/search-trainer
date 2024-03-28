@@ -1,4 +1,4 @@
-from utils import * 
+from SearchAlgorithms.utils import * 
 
 def best_first_graph_search(problem, f, display=False):
     """

@@ -1,4 +1,4 @@
-from DepthLimitedSearch import * 
+from SearchAlgorithms.DepthLimitedSearch import * 
 
 def iterative_deepening_search(problem):
     """[Figure 3.18]"""

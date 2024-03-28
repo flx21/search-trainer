@@ -1,4 +1,4 @@
-from utils import *
+from SearchAlgorithms.utils import *
 
 def breadth_first_tree_search(problem):
     """

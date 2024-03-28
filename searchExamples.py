@@ -1,4 +1,4 @@
-from utils import * 
+from SearchAlgorithms.utils import * 
 
 romania_map = UndirectedGraph(dict(
     A=dict(Z=75, S=140, T=118),

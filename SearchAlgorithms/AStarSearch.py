@@ -1,5 +1,5 @@
-from utils import *
-from BestFirstSearch import * 
+from SearchAlgorithms.utils import *
+from SearchAlgorithms.BestFirstSearch import * 
 
 def astar_search(problem, h=None, display=False, steps = 50):
     """A* search is best-first graph search with f(n) = g(n)+h(n).
