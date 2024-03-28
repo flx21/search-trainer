@@ -1,21 +1,21 @@
-Uses the implementation from [this repository](https://github.com/aimacode/aima-python) for the following seach algorithms:
+# Search Algorithm Trainer
+The purpose of this program is to train for the execution of the provided Search Algorithms by hand in order to be well prepared for the Exam of IN2062 (Grundlagen der Künstlichen Intelligenz).
 
-1. **Breadth First Search** aka `breadth_first_graph_search` ([unused] also without explored set: `breadth_first_tree_search`)
-2. **Depth First Search** aka  `depth_first_tree_search` ([unused] also with explored set: `depth_first_graph_search`)
-3. **Uniform Cost Search aka Dijkstra** aka `uniform_cost_search`
-4. **Depth Limited Search** aka `depth_limited_search`
-5. **Iterative Deepening Search** aka `iterative_deepening_search`
-6. **Greedy Best First Search** aka `greedy_best_first_graph_search`
-7. **$A^*$ Search** aka `astar_search`
+## Seach Algorithms taken from [this repository](https://github.com/aimacode/aima-python): 
+| Algorithm | Function name | Notes |
+|-----------|---------------|-------|
+|**Breadth First Search** | `breadth_first_graph_search`|[unused] also **without** explored set: `breadth_first_tree_search`
+|**Depth First Search**|`depth_first_tree_search`|[unused] also **with** explored set: `depth_first_graph_search`|
+|**Uniform Cost Search aka Dijkstra**|`uniform_cost_search`||
+|**Depth Limited Search**|`depth_limited_search`||
+|**Iterative Deepening Search**|`iterative_deepening_search`||
+|**Greedy Best First Search**|`greedy_best_first_graph_search`||
+|**$A^*$ Search**|`astar_search`||
 
-The romania example and the util and SearchUtil functions were also taken from said repository.
+Additionally, some util functions for these algorithms and the romania example were taken from the same repository.
 
-The Algorithms were adjusted to return the nodes in order of their expansion.
-The purpose of this program is to train for the execution of these Search Algorithms by hand in order to be well prepared for the Exam of IN2062 (Grundlagen der Künstlichen Intelligenz).
-
-Useful overview of properties of these Search Algorithms:
-
-- Branching factor aka as max number of successors of any node $b$
+## **Useful overview of properties of these Search Algorithms:**
+- Branching factor (max number of successors of any node) $b$
 - Maximum length of any path (in state space) $m$ 
 - Depth of shallowed goal node $d$
 - Cost of optimal solution $C^*$
@@ -35,13 +35,13 @@ Useful overview of properties of these Search Algorithms:
 | Greedy Best First Search| Informed | Yes (if graph search is used) | No |  $O(bm)$ (Worst case: heuristic is misleading the search such that the solution is found last) | $O(bm)$ (Worst case: heuristic is misleading the search such that the solution is found last) (since all nodes are stored) |
 | A*| Informed | Yes (if all costs are $> 0$) | Yes (if costs are positive and heuristic is admissible) | $O(b^{\epsilon^* d})$ (If the state space has a single goal and all actions are reversible) | $O(b^{\epsilon^* d})$ (If the state space has a single goal and all actions are reversible) (since all nodes are stored) |
 
-Erläuterungen:
+Explanations:
 - Optimal: Does the strategy find the optimal solution (minimum costs)?
 - Complete: Is it guaranteed that the algorithm finds a solution if one exists?
 
-Eigenschaften von Heuristiken $h(n)$: 
-- Consistency: $h(n)$ ist consistent, wenn $h(n) \leq c(n, a, n') + h(n')$ für alle nodes $n$, action $a$ und alle direkten Nachfolger $n'$ gilt.
-- Admissible: An admissible heuristic is an
+## Properties of heuristics $h(n)$: 
+- **Consistency**: $h(n)$ is consistent, iff $h(n) \leq c(n, a, n') + h(n')$ for all nodes $n$, action $a$ and all direct successors $n'$ gilt.
+- **Admissible**: An admissible heuristic is an
 underestimation, i.e., it has to be less than or equal to the actual cost.
 - Every consistent heuristic is also admissible
 - 
