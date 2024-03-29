@@ -26,7 +26,7 @@ def best_first_graph_search(problem, f, display=False):
         explored.add(node.state)
         #Extending------
         expanded.append(node)
-        for child in node.expand(problem):
+        for child in sorted(node.expand(problem)):
         #---------------
             if child.state not in explored and child not in frontier:
                 frontier.append(child)

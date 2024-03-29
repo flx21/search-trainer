@@ -16,7 +16,7 @@ def depth_first_tree_search(problem, max_expansions = sys.maxsize):
         if problem.goal_test(node.state):
             return node, expanded
         #Extending------
-        frontier.extend(node.expand(problem))
+        frontier.extend(sorted(node.expand(problem)))
         expanded.append(node)
         #---------------
     return None, expanded
@@ -41,7 +41,7 @@ def depth_first_graph_search(problem):
             return node, expanded
         explored.add(node.state)
         #Extending------
-        frontier.extend(child for child in node.expand(problem)
+        frontier.extend(child for child in sorted(node.expand(problem))
                         if child.state not in explored and child not in frontier)
         expanded.append(node)
         #---------------

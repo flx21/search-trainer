@@ -12,7 +12,7 @@ def depth_limited_search(problem, limit=50):
             cutoff_occurred = False
             #Extending------
             expanded.append(node)
-            for child in node.expand(problem):
+            for child in sorted(node.expand(problem)):
             #---------------
                 result = recursive_dls(child, problem, limit - 1)
                 if result == 'cutoff':
