@@ -2,10 +2,8 @@ from AlgResults import *
 from searchExamples import * 
 from GraphUtil import * 
 import argparse
-import datetime
-import numpy as np
 
-parser = argparse.ArgumentParser(description='Train search algorithms')
+parser = argparse.ArgumentParser(description='Practice search algorithms')
 
 group = parser.add_mutually_exclusive_group()
 group.add_argument('-ro', action='store_true', help='Use the romania map')
@@ -20,31 +18,32 @@ args = parser.parse_args()
 if args.ro:
     p, h = switzerland_problem, straight_line_to_lucerne
     name = "romania"
+    generate_graph_svg(p, h, name, override=False, font_color="orange")
 elif args.ch:
     p, h = switzerland_problem, straight_line_to_lucerne
     name = "ch"
+    generate_graph_svg(p, h, name, override=False, font_color="orange")
 elif args.r:
     nodes, seed, prob = args.n, args.s, args.p
     p, h, seed = random_problem(nodes = nodes, seed=seed, p = prob)
     name = str(seed)+"_"+str(nodes)+"_"+str(prob)
-    print(name)
     generate_graph_svg(p, h, name, override=False, font_color="orange")
 else:
     parser.print_help()
 
-print("Please check if " + name + ".svg is readable enough.")
 cont = True 
 while cont:
     cont = input("Want to regenerate " + name + ".svg?: [n/Anything else]\n").lower() != 'n'
     if(cont):
         generate_graph_svg(p, h, name, override=True, font_color="orange")
+    else:
+        break
 
 res = expansion_order(p, lambda n: h[n.state], steps=5)
 
 keys = set(list(res.keys()))
-for k in keys:
-    e = res[k] 
+for k in keys: 
     print(k+":")
-    input()
-    print("-".join([n.state for n in e]))
-    print("\n")
+    print("".format(input("")))
+    print("-".join([n.state for n in res[k]]))
+    print("".format(input("")))
