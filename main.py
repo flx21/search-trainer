@@ -13,10 +13,12 @@ group.add_argument('-r', action='store_true', help='Generate a random graph with
 parser.add_argument('--n', metavar='Nodes', type = int, default= 10, help='Specify how many nodes should be created in a random graph')
 parser.add_argument('--s', metavar='Seed', type = int, default= None, help='Specify what seed should be used in the creation of the random graph')
 parser.add_argument('--p', metavar='Probability', type = float, default= 0.065, help='Specify what probability nodes should be connected with in a random graph (Not quite, since the graph is guaranteed to be connected)')
+parser.add_argument('--e', metavar='Expanded', type = int, default= 5, help='Specify the Maximum number of expanded nodes')
 args = parser.parse_args()
 
+name = None
 if args.ro:
-    p, h = switzerland_problem, straight_line_to_lucerne
+    p, h = romania_problem, straight_line_to_bucharest_slides
     name = "romania"
     generate_graph_svg(p, h, name, override=False, font_color="orange")
 elif args.ch:
@@ -31,19 +33,20 @@ elif args.r:
 else:
     parser.print_help()
 
-cont = True 
-while cont:
-    cont = input("Want to regenerate " + name + ".svg?: [n/Anything else]\n").lower() != 'n'
-    if(cont):
-        generate_graph_svg(p, h, name, override=True, font_color="orange")
-    else:
-        break
+if name:
+    cont = True 
+    while cont:
+        cont = input("Want to regenerate " + name + ".svg?: [n/Anything else]\n").lower() != 'n'
+        if(cont):
+            generate_graph_svg(p, h, name, override=True, font_color="orange")
+        else:
+            break
 
-res = expansion_order(p, lambda n: h[n.state], steps=5)
+    res = expansion_order(p, lambda n: h[n.state], steps=args.e)
 
-keys = set(list(res.keys()))
-for k in keys: 
-    print(k+":")
-    print("".format(input("")))
-    print("-".join([n.state for n in res[k]]))
-    print("".format(input("")))
+    keys = set(list(res.keys()))
+    for k in keys: 
+        print(k+":")
+        print("".format(input("")))
+        print("-".join([n.state for n in res[k]]))
+        print("".format(input("")))

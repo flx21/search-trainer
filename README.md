@@ -45,3 +45,7 @@ Explanations:
 underestimation, i.e., it has to be less than or equal to the actual cost.
 - Every consistent heuristic is also admissible
 - 
+
+## Required libraries
+- matplotlib
+- networkX
