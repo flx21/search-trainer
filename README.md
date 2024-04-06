@@ -17,7 +17,7 @@ Additionally, some util functions for these algorithms and the romania example w
 ## **Useful overview of properties of these Search Algorithms:**
 - Branching factor (max number of successors of any node) $b$
 - Maximum length of any path (in state space) $m$ 
-- Depth of shallowed goal node $d$
+- Depth of shallowest goal node $d$
 - Cost of optimal solution $C^*$
 - Minimum Step cost $\epsilon$
 - Depth limit $l$ (For depth limited search)
@@ -33,18 +33,19 @@ Additionally, some util functions for these algorithms and the romania example w
 |Depth Limited Search| Uninformed |No (if $l < d$ ) | No (if $l > d$) |  $O(b^l)$ | $O(bl)$ |
 |Iterative Deepening| Uninformed| Yes (if $b$ is finite) | Yes, if all step costs are the same |  $O(b^d)$ | $O(bd)$ |
 | Greedy Best First Search| Informed | Yes (if graph search is used) | No |  $O(bm)$ (Worst case: heuristic is misleading the search such that the solution is found last) | $O(bm)$ (Worst case: heuristic is misleading the search such that the solution is found last) (since all nodes are stored) |
-| A*| Informed | Yes (if all costs are $> 0$) | Yes (if costs are positive and heuristic is admissible) | $O(b^{\epsilon^* d})$ (If the state space has a single goal and all actions are reversible) | $O(b^{\epsilon^* d})$ (If the state space has a single goal and all actions are reversible) (since all nodes are stored) |
+| $A^*$-Search | Informed | Yes (if all costs are $> 0$) | Yes (if costs are positive and heuristic is admissible) | $O(b^{\epsilon^* d})$ (If the state space has a single goal and all actions are reversible) | $O(b^{\epsilon^* d})$ (If the state space has a single goal and all actions are reversible) (since all nodes are stored) |
+
+Note: 
+DFS and BFS conduct a goal check on nodes that are added to the frontier, while the other algorithms do so when nodes are taken out of the frontier
 
 Explanations:
 - Optimal: Does the strategy find the optimal solution (minimum costs)?
 - Complete: Is it guaranteed that the algorithm finds a solution if one exists?
-
 ## Properties of heuristics $h(n)$: 
 - **Consistency**: $h(n)$ is consistent, iff $h(n) \leq c(n, a, n') + h(n')$ for all nodes $n$, action $a$ and all direct successors $n'$ gilt.
 - **Admissible**: An admissible heuristic is an
 underestimation, i.e., it has to be less than or equal to the actual cost.
 - Every consistent heuristic is also admissible
-- 
 
 ## Required libraries
 - matplotlib

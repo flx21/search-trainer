@@ -37,7 +37,8 @@ def generate_graph_svg(graph_problem, heuristic, name, initial_color = 'red', st
             color_map.append(standard_color)
         
     fig, ax = plt.subplots(figsize=(figx, figy))
-    pos = nx.spring_layout(G, iterations = 800)
+    #pos = nx.spring_layout(G, iterations = 800)
+    pos = nx.spring_layout(G, iterations = 1)
     nx.draw(G, pos, node_color=color_map, ax=ax, node_size = 1000)
     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
     nx.draw_networkx_labels(G, pos, font_color=font_color, labels=node_labels)
