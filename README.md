@@ -38,10 +38,6 @@ Additionally, some util functions for these algorithms and the romania example w
 
 Note: 
 DFS and BFS conduct a goal check on nodes that are added to the frontier, while the other algorithms do so when nodes are taken out of the frontier
-| $A^*$-Search | Informed | Yes (if all costs are $> 0$) | Yes (if costs are positive and heuristic is admissible) | $O(b^{\epsilon^* d})$ (If the state space has a single goal and all actions are reversible) | $O(b^{\epsilon^* d})$ (If the state space has a single goal and all actions are reversible) (since all nodes are stored) |
-
-Note: 
-DFS and BFS conduct a goal check on nodes that are added to the frontier, while the other algorithms do so when nodes are taken out of the frontier
 
 Explanations:
 - Optimal: Does the strategy find the optimal solution (minimum costs)?
