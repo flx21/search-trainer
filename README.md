@@ -18,6 +18,7 @@ Additionally, some util functions for these algorithms and the romania example w
 - Branching factor (max number of successors of any node) $b$
 - Maximum length of any path (in state space) $m$ 
 - Depth of shallowest goal node $d$
+- Depth of shallowest goal node $d$
 - Cost of optimal solution $C^*$
 - Minimum Step cost $\epsilon$
 - Depth limit $l$ (For depth limited search)
@@ -37,6 +38,10 @@ Additionally, some util functions for these algorithms and the romania example w
 
 Note: 
 DFS and BFS conduct a goal check on nodes that are added to the frontier, while the other algorithms do so when nodes are taken out of the frontier
+| $A^*$-Search | Informed | Yes (if all costs are $> 0$) | Yes (if costs are positive and heuristic is admissible) | $O(b^{\epsilon^* d})$ (If the state space has a single goal and all actions are reversible) | $O(b^{\epsilon^* d})$ (If the state space has a single goal and all actions are reversible) (since all nodes are stored) |
+
+Note: 
+DFS and BFS conduct a goal check on nodes that are added to the frontier, while the other algorithms do so when nodes are taken out of the frontier
 
 Explanations:
 - Optimal: Does the strategy find the optimal solution (minimum costs)?
@@ -45,7 +50,11 @@ Explanations:
 - **Consistency**: $h(n)$ is consistent, iff $h(n) \leq c(n, a, n') + h(n')$ for all nodes $n$, action $a$ and all direct successors $n'$ gilt.
 - **Admissible**: An admissible heuristic is an
 underestimation, i.e., it has to be less than or equal to the actual cost.
+- $h_2$ dominates $h_1$ iff $\forall n:  h_2(n) \geq h_1(n)$
 - Every consistent heuristic is also admissible
+- In $A^*$: 
+    -  If the heuristic is consistent, any node is only expanded if it is located on an optimal path to its state.
+    - A dominating heuristic will never expand more nodes than the heuristic it dominates 
 
 ## Required libraries
 - matplotlib
