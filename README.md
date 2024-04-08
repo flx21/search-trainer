@@ -18,7 +18,6 @@ Additionally, some util functions for these algorithms and the romania example w
 - Branching factor (max number of successors of any node) $b$
 - Maximum length of any path (in state space) $m$ 
 - Depth of shallowest goal node $d$
-- Depth of shallowest goal node $d$
 - Cost of optimal solution $C^*$
 - Minimum Step cost $\epsilon$
 - Depth limit $l$ (For depth limited search)
